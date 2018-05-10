@@ -1,3 +1,4 @@
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
     entry:{
         app:"./src/index.js"
@@ -5,5 +6,8 @@ module.exports = {
     output:{
         path:__dirname,
         filename:"./dist/[name].js"
-    }
+    },
+    plugins:[
+        new HtmlWebpackPlugin({title:"Webpack Demo"})
+    ]
 }
