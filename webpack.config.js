@@ -26,7 +26,11 @@ const commonConfig = merge([
                     options:{
                         name:"./dist/images/[name].[ext]"
                     }
-                }]
+                },
+                {
+                    loader:"image-webpack-loader"                    
+                }
+            ]
             }
         ]
     }
