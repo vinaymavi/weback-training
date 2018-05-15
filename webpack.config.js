@@ -17,20 +17,22 @@ const commonConfig = merge([
       path: __dirname,
       filename: "./dist/[name].js"
     }
-  },
-  parts.loadCSS()
+  }
 ]);
 
-const prodConfig = merge([]);
+const prodConfig = merge([
+    parts.extractCSS({use:["css-loader",parts.autoprefixer(),"sass-loader"]})
+]);
 
 const devConfig = merge([
-  parts.devServer({ host: process.env.HOST }, { port: process.env.PORT })
+  parts.devServer({ host: process.env.HOST }, { port: process.env.PORT }),
+  parts.loadCSS()
 ]);
 
 module.exports = mode => {
     console.log(`MODE = ${mode}`);
   if (mode === "production") {
-    console.log(merge(commonConfig, prodConfig, { mode }));
+    console.log(JSON.stringify(merge(commonConfig, prodConfig, { mode })));
     return merge(commonConfig, prodConfig, { mode });
   } else {
     console.log(merge(commonConfig, devConfig, { mode }));
