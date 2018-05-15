@@ -16,6 +16,14 @@ const commonConfig = merge([
     output: {
       path: __dirname,
       filename: "./dist/[name].js"
+    },
+    module:{
+        rules:[
+            {
+                test:/\.(jpg|png)$/,
+                use:["url-loader"]
+            }
+        ]
     }
   }
 ]);
