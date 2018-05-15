@@ -17,7 +17,8 @@ const commonConfig = merge([
       path: __dirname,
       filename: "./dist/[name].js"
     }
-  }
+  },
+  parts.loadCSS()
 ]);
 
 const prodConfig = merge([]);
