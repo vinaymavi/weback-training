@@ -33,8 +33,9 @@ const commonConfig = merge([
             ]
             }
         ]
-    }
-  }
+    },
+  },
+  parts.loadJavaScript()
 ]);
 
 const prodConfig = merge([
@@ -52,7 +53,7 @@ module.exports = mode => {
     console.log(JSON.stringify(merge(commonConfig, prodConfig, { mode })));
     return merge(commonConfig, prodConfig, { mode });
   } else {
-    console.log(merge(commonConfig, devConfig, { mode }));
+    console.log(JSON.stringify(merge(commonConfig, devConfig, { mode })));
     return merge(commonConfig, devConfig, { mode });
   }
 };
